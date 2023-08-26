@@ -30,9 +30,12 @@ public class MovieCatalogController {
     @GetMapping("{userId}")
     public List<CatalogItem> getCatalogItems(@PathVariable("userId") String userId) {
 
-        List<Rating> ratings = Arrays.asList(
+        /* List<Rating> ratings = Arrays.asList(
                 new Rating("123", 5),
-                new Rating("124", 4));
+                new Rating("124", 4)); 
+        */
+        Rating[] ratingArray = restTemplate.getForObject("http://localhost:8083/rating/user/"+userId, Rating[].class);
+        List<Rating> ratings = Arrays.asList(ratingArray);
 
         // Using RestTemplate
         return ratings.stream().map(rating -> {
