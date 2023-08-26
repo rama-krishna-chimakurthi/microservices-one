@@ -34,12 +34,12 @@ public class MovieCatalogController {
                 new Rating("123", 5),
                 new Rating("124", 4)); 
         */
-        Rating[] ratingArray = restTemplate.getForObject("http://localhost:8083/rating/user/"+userId, Rating[].class);
+        Rating[] ratingArray = restTemplate.getForObject("http://rating-data-service/rating/user/"+userId, Rating[].class);
         List<Rating> ratings = Arrays.asList(ratingArray);
 
         // Using RestTemplate
         return ratings.stream().map(rating -> {
-            Movie movie = restTemplate.getForObject("http://localhost:8082/movie/" +rating.getMovieId(), Movie.class);
+            Movie movie = restTemplate.getForObject("http://movie-info-service/movie/" +rating.getMovieId(), Movie.class);
             return new CatalogItem(movie.getMovieName(), movie.getMovieDescription(),rating.getRating());
         }).collect(Collectors.toList());
         
