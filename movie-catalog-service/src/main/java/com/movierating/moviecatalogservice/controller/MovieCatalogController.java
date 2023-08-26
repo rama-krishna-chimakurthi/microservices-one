@@ -1,7 +1,7 @@
 package com.movierating.moviecatalogservice.controller;
 
 import java.util.Arrays;
-import java.util.Collections;
+//import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,10 +53,11 @@ public class MovieCatalogController {
             return new CatalogItem(movie.getMovieName(), movie.getMovieDescription(), rating.getRating());
         }).collect(Collectors.toList()); */
 
-        /*
-         * return Collections.singletonList(
-         * new CatalogItem("Transformers", "test Desc", 5));
-         */
+        
+        /* return Collections.singletonList(
+            new CatalogItem("Transformers", "test Desc", 5)
+        ); */
+       
     }
 
 }
