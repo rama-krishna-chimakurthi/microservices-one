@@ -3,9 +3,9 @@ package com.movierating.movieinfoservice.controller.dto;
 public class Movie {
     private String movieName;
     private String movieDescription;
-    private int movieId;
+    private String movieId;
 
-    public Movie(String movieName, String movieDescription, int movieId) {
+    public Movie(String movieName, String movieDescription, String movieId) {
         this.movieName = movieName;
         this.movieDescription = movieDescription;
         this.movieId = movieId;
@@ -33,11 +33,11 @@ public class Movie {
         this.movieDescription = movieDescription;
     }
 
-    public int getMovieId() {
+    public String getMovieId() {
         return movieId;
     }
 
-    public void setMovieId(int movieId) {
+    public void setMovieId(String movieId) {
         this.movieId = movieId;
     }
 
